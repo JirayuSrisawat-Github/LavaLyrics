@@ -1,6 +1,5 @@
 plugins {
    `java-library`
-    id("dev.arbjerg.lavalink.gradle-plugin") version "1.0.15"
 }
 
 base {
@@ -9,13 +8,6 @@ base {
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
-}
-
-lavalinkPlugin {
-    name = "lavalyrics"
-    apiVersion = "4.0.5"
-    serverVersion = "4.0.5"
-    configurePublishing = false
 }
 
 java {
