@@ -3,6 +3,8 @@ package com.github.topi314.lavalyrics;
 import com.github.topi314.lavalyrics.lyrics.AudioLyrics;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +13,7 @@ import java.util.List;
 
 public class LyricsManager {
 
+	private final Logger logger = LoggerFactory.getLogger(LyricsManager.class);
 	private final List<AudioLyricsManager> lyricsManagers;
 
 	public LyricsManager() {
@@ -67,6 +70,7 @@ public class LyricsManager {
 			}
 		}
 		for (var lyricsManager : this.lyricsManagers) {
+			logger.debug("Attempting to load lyrics from {}", lyricsManager.getSourceName());
 			var lyrics = lyricsManager.loadLyrics(track);
 			if (lyrics != null) {
 				return lyrics;
