@@ -51,7 +51,7 @@ public class LyricsManager {
 
 	@Nullable
 	public AudioLyrics loadLyrics(AudioTrack track) {
-		return loadLyrics(track, false);
+		return loadLyrics(track, true);
 	}
 
 	@Nullable

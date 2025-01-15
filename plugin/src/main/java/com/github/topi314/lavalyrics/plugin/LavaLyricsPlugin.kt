@@ -61,7 +61,7 @@ class LavaLyricsPlugin(
             return ResponseEntity.noContent().build()
         }
 
-        val lyrics = lyricsManager.loadLyrics(player.track, false)
+        val lyrics = lyricsManager.loadLyrics(player.track, true)
         if (lyrics == null || lyrics.lines == null || lyrics.lines!!.isEmpty()) {
             socketContext.sendMessage(LyricsNotFoundEvent.serializer(), LyricsNotFoundEvent(guildId))
             return ResponseEntity.noContent().build()
